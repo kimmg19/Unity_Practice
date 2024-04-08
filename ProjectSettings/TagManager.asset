@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - WayPoints
+  - Weapon
+  - Monster
+  - Dummy
   layers:
   - Default
   - TransparentFX
