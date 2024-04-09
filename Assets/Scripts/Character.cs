@@ -22,11 +22,14 @@ public class Character : MonoBehaviour
     public float smoothDampTime = 0.15f;
     public float speedDampTime = 0.2f;
     float gravity = -9.8f;
-
+    TrailRenderer trailRenderer;
     void Start()
     {
         characterController = characterBody.GetComponent<CharacterController>();
         animator = characterBody.GetComponent<Animator>();
+        trailRenderer = GetComponentInChildren<TrailRenderer>();
+        trailRenderer.gameObject.SetActive(false);
+
     }
 
     void Update()
@@ -109,8 +112,8 @@ public class Character : MonoBehaviour
     }
     void DamageEnable()
     {
-        enableDamaging = !enableDamaging;
-    }  
+        enableDamaging = !enableDamaging;        
+    }
 
     void OnRoll()
     {
@@ -134,5 +137,16 @@ public class Character : MonoBehaviour
         characterController.height = 1.6f;
         isDodging = false;
         OnFinishAttack();
+    }
+
+    void AttackEffectOn()
+    {
+        trailRenderer.gameObject.SetActive(true);
+
+        
+    }
+    void AtttackEffectOff()
+    {
+        trailRenderer.gameObject.SetActive(false);
     }
 }

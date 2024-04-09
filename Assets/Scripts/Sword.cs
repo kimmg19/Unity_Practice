@@ -7,13 +7,14 @@ public class Sword : MonoBehaviour
     Character character;
     Enemy enemy;
     Dummy dummy;
+    TrailRenderer trailRenderer;
     private void Start()
     {
         character = FindObjectOfType<Character>();
         enemy = FindObjectOfType<Enemy>();
         dummy = FindObjectOfType<Dummy>();
     }
-
+    
     public int damageAmount = 20;
     private void OnTriggerEnter(Collider other)
     {
@@ -28,4 +29,5 @@ public class Sword : MonoBehaviour
             } else return;
         }
     }
+    
 }
