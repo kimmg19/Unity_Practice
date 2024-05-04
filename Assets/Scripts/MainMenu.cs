@@ -5,23 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject gameStartSelection;
-    // Start is called before the first frame update
     void Start()
     {
-        gameStartSelection.SetActive(false);
+        AudioManager.instance.Play("Main");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
-
-    public void OnClickNewGame()
+    public void OnClickGameStart()
     {
-        Debug.Log("New Game");
-        gameStartSelection.SetActive(true);
+        Debug.Log("GameStart");
+        Destroy(AudioManager.instance.gameObject);
+        LoadingSceneManager.LoadScene("InGameScene");
     }
 
     public void OnClickLoad()
@@ -43,13 +37,4 @@ public class MainMenu : MonoBehaviour
 #endif
     }
 
-    public void OnClickChangeScene()
-    {
-        SceneManager.LoadScene("InGameScene");
-    }
-
-    public void OnClickClose()
-    {
-        gameStartSelection.SetActive(false);
-    }
 }
