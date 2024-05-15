@@ -26,7 +26,7 @@ public class Portal : MonoBehaviour
             AskSelection.SetActive(false);
         }
     }
-    
+
 
     void Update()
     {
@@ -35,7 +35,8 @@ public class Portal : MonoBehaviour
             floorSelection.SetActive(true);
             AskSelection.SetActive(false);
 
-        } else playerMovement.isGPress = false;
+        }
+        else playerMovement.isGPress = false;
     }
 
     // Player가 포탈에 진입할 때
@@ -47,7 +48,6 @@ public class Portal : MonoBehaviour
             if (AskSelection != null)
             {
                 AskSelection.SetActive(true);
-                print("Player entered the portal.");
             }
         }
     }
@@ -72,8 +72,13 @@ public class Portal : MonoBehaviour
 
     public void OnClick1stFloor()
     {
-        Destroy(AudioManager.instance.gameObject); // 층 넘어가면 bgm x
-        LoadingSceneManager.LoadScene("1stFloor");
+        LoadingSceneManager.LoadScene(3);
+        Time.timeScale = 1f;
+    }
+
+    public void OnClick2ndFloor()
+    {
+        LoadingSceneManager.LoadScene(4);
         Time.timeScale = 1f;
     }
 
